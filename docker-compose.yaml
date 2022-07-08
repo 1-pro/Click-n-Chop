@@ -1,0 +1,21 @@
+version: '3'
+services:
+  Deployment:
+    image: clickphp
+    container_name: click_n_chop
+    ports:
+      - '4000:80'
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      MYSQL_DB_CONNECTION: test-db
+      MYSQL_DB_NAME: click
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      SITE_URL: http://localhost
+    networks:
+      - phpsite
+networks:
+  phpsite:
+
+
